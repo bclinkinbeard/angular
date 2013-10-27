@@ -1,0 +1,25 @@
+{
+  "name": "angular-node",
+  "version": "0.0.0",
+  "description": "AngularJS compiled with jsdom and provided as a CommonJS module. Intended for testing AngularJS code without depending on a browser.",
+  "main": "index.js",
+  "scripts": {
+    "test": "nodeunit ./test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "http://github.com/bclinkinbeard/angular-node.git"
+  },
+  "keywords": [
+    "angular",
+    "angularjs",
+    "commonjs",
+    "require",
+    "testing"
+  ],
+  "author": {
+    "name": "Ben Clinkinbeard",
+    "email": "ben.clinkinbeard@gmail.com"
+  },
+  "license": "MIT"
+}
