@@ -19,7 +19,7 @@ function compile() {
 module.exports = function (path, overwrite) {
 	if (global.window.angular && !overwrite) return global.window.angular;
 
-	ngPath = path ? require('path').resolve(process.cwd(), path) : require.resolve('./lib/angular.js');
+	ngPath = path ? require('path').resolve(process.cwd(), path) : require.resolve('./lib/angular.min.js');
 	compile();
 
 	return global.window.angular;
