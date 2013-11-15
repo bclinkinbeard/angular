@@ -10,7 +10,8 @@ function compile() {
 	// read angular source into memory
 	var src = require('fs').readFileSync(ngPath, 'utf8');
 	// replace implicit reference
-	src = src.replace('angular.element(document)', 'window.angular.element(document)');
+	src = src.split('angular.$$csp()').join('window.angular.$$csp()');
+	src = src.split('angular.element(document)').join('window.angular.element(document)');
 	// run it!
 	eval(src);
 }
