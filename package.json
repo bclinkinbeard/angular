@@ -1,6 +1,6 @@
 {
   "name": "angular",
-  "version": "1.1.5",
+  "version": "1.2.0",
   "description": "AngularJS compiled with jsdom and provided as a CommonJS module. Intended for testing AngularJS code without depending on a browser.",
   "main": "index.js",
   "scripts": {
