@@ -3,6 +3,10 @@ angular
 
 AngularJS compiled with jsdom and provided as a CommonJS module. Intended for testing AngularJS code without depending on a browser.
 
+## Versioning
+
+The version number of this module reflects the version of AngularJS it provides.
+
 
 ## Why
 
