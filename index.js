@@ -1,27 +1,17 @@
-var jsdom = require('jsdom').jsdom,
-	ngPath;
+var fs = require('fs'),
+	path = require('path'),
+	document = require('jsdom').jsdom('<html><head></head><body></body></html>'),
+	window = document.parentWindow;
 
-// create global vars angular assumes are available
-global.document = jsdom('<html><head></head><body></body></html>');
-global.window = document.parentWindow;
-global.navigator = {};
-
-function compile() {
+(function () {
 	// read angular source into memory
-	var src = require('fs').readFileSync(ngPath, 'utf8');
-	// replace implicit reference
-	src = src.split('angular.$$csp()').join('window.angular.$$csp()');
-	src = src.split('angular.element(document)').join('window.angular.element(document)');
-	// run it!
-	eval(src);
-}
+	var src = require('fs').readFileSync(__dirname + '/lib/angular.min.js', 'utf8');
 
-// share the love
-module.exports = function (path, overwrite) {
-	if (global.window.angular && !overwrite) return global.window.angular;
+	// replace implicit references
+	src = src.replace('angular.element(document)', 'window.angular.element(document)');
+	src = src.replace('(navigator.userAgent)', '(window.navigator.userAgent)');
 
-	ngPath = path ? require('path').resolve(process.cwd(), path) : require.resolve('./lib/angular.min.js');
-	compile();
+	(new Function('window', 'document', src))(window, document);
+})();
 
-	return global.window.angular;
-}
+module.exports = window.angular;
