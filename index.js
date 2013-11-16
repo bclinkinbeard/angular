@@ -9,7 +9,8 @@ var fs = require('fs'),
 
 	// replace implicit references
 	src = src.replace('angular.element(document)', 'window.angular.element(document)');
-	src = src.replace('(navigator.userAgent)', '(window.navigator.userAgent)');
+	src = src.split('(navigator.userAgent)').join('(window.navigator.userAgent)');
+	src = src.split('angular.$$csp').join('window.angular.$$csp');
 
 	(new Function('window', 'document', src))(window, document);
 })();
