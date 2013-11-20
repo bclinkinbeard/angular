@@ -3,11 +3,8 @@ var test = require('tape'),
 	inject = angular.injector(['ng']).invoke;
 
 test('init', function (t) {
-
 	t.true(angular, 'Angular instance is defined');
-
 	t.end();
-
 });
 
 test('injector', function (t) {

@@ -1,5 +1,4 @@
 var fs = require('fs'),
-	path = require('path'),
 	document = require('jsdom').jsdom('<html><head></head><body></body></html>'),
 	window = document.parentWindow;
 
