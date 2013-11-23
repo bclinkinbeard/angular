@@ -5,7 +5,7 @@
   "main": "index.js",
   "browser": "index-browserify.js",
   "scripts": {
-    "test": "tape test/*.js"
+    "test": "tape test/index.js"
   },
   "repository": {
     "type": "git",

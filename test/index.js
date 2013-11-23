@@ -1,11 +1,24 @@
 var test = require('tape'),
-	angular = require('../'),
+	path = require('path'),
+	angular = require('angular'),
 	inject = angular.injector(['ng']).invoke;
 
-test('init', function (t) {
-	t.true(angular, 'Angular instance is defined');
+test('core', function (t) {
+
+	test('init', function (t) {
+		t.true(angular, 'Angular instance is defined');
+		t.end();
+	});
+
+	test('version', function (t) {
+		t.equal(angular.version.full, require(path.resolve('./package.json')).version, 'Angular and package versions match');
+		t.end();
+	});
+
 	t.end();
 });
+
+
 
 test('injector', function (t) {
 	var el;
@@ -24,5 +37,4 @@ test('injector', function (t) {
 	});
 
 	t.end();
-
 });
