@@ -1,6 +1,6 @@
 {
   "name": "angular",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "AngularJS provided as a CommonJS module. Compiled with jsdom when running in Node. Useful for client-side apps built with Browserify and for testing AngularJS code in Node without depending on a browser.",
   "main": "index.js",
   "browser": "index-browserify.js",
