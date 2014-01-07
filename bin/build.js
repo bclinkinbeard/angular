@@ -29,12 +29,8 @@ function testAndTag () {
 		if (error !== null) {
 			console.log('test error: ' + error);
 		} else {
-			var fileList = files.map(function (file) {
-				return path.resolve('lib' + file)
-			})
-			exec('git commit ' + fileList.join(' ') + ' -m "Angular v' + version + ' source files"');
-			exec('git reset --hard');
-			exec('npm version ' + version + ' -m "Angular v%s with Browserify support"');
+			exec('git commit -am "Angular v' + version + ' with Browserify support"');
+			exec('git tag v' + version);
 		}
 	});
 }
