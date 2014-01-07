@@ -29,8 +29,11 @@ function testAndTag () {
 		if (error !== null) {
 			console.log('test error: ' + error);
 		} else {
-			exec('git commit -am "Angular v' + version + ' with Browserify support"');
-			exec('git tag v' + version);
+			exec('git commit -am "Angular v' + version + ' with Browserify support"', function (err) {
+				if (error === null) {
+					exec('git tag v' + version);
+				}
+			});
 		}
 	});
 }
