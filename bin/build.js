@@ -32,6 +32,7 @@ function testAndTag () {
 			exec('git commit -am "Angular v' + version + ' with Browserify support"', function (err) {
 				if (error === null) {
 					exec('git tag v' + version);
+					console.log('Angular successfully updated to v' + version);
 				}
 			});
 		}
