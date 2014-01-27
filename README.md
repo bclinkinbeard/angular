@@ -13,7 +13,7 @@ For client-side apps using Browserify, this module provides a way for them to us
 
 Having a version of AngularJS that works outside the browser could also be convenient for many reasons. The primary motivation was around testability and modularity of AngularJS related projects. For developers utilizing the CommonJS standard and Browserify to build AngularJS projects and ecosystems, the hope is that this module will greatly simplify their workflow.
 
-As [egghead.io](http://egghead.io) has shown, testing [simple views](https://egghead.io/lessons/angularjs-unit-testing-hello-world) and [directives](https://egghead.io/lessons/angularjs-unit-testing-a-directive) is a great way to ensure the pieces of your app are working as intended. Unfortunately, testing this way usually requires running your code in a real browser via something like Karma, because AngularJS assumes `window` and `document` are both available. Additionally, AngularJS (via `angular-mocks.js`) only exposes the `inject` method shown in the [egghead.io](http://egghead.io) videos if `window.jasmine` is defined. 
+As [egghead.io](http://egghead.io) has shown, testing [simple views](https://egghead.io/lessons/angularjs-unit-testing-hello-world) and [directives](https://egghead.io/lessons/angularjs-unit-testing-a-directive) is a great way to ensure the pieces of your app are working as intended. Unfortunately, testing this way usually requires running your code in a real browser via something like Karma, because AngularJS assumes `window` and `document` are both available. Additionally, AngularJS (via `angular-mocks.js`) only exposes the `inject` method shown in the [egghead.io](http://egghead.io) videos if `window.jasmine` is defined.
 
 This module allows you to test AngularJS views and directives using any testing framework and runner you like, from [Mocha](http://visionmedia.github.io/mocha/) to [Nodeunit](https://github.com/caolan/nodeunit) to [tape](https://github.com/substack/tape).
 
@@ -68,3 +68,8 @@ inject(function ($rootScope) {
 
 // answer === 'bar'
 ```
+
+### How to build (reminder for myself)
+
+Update `package.json` to the desired version, save but don't commit, then run `node bin/build.js`. Then `git push`
+and `npm publish`.
