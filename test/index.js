@@ -1,7 +1,8 @@
 var test = require('tape'),
 	path = require('path'),
 	angular = require('angular'),
-	inject = angular.injector(['ng']).invoke;
+	inject = angular.injector(['ng']).invoke,
+	version = require(path.resolve('./package.json')).version;
 
 test('core', function (t) {
 
@@ -11,14 +12,12 @@ test('core', function (t) {
 	});
 
 	test('version', function (t) {
-		t.equal(angular.version.full, require(path.resolve('./package.json')).version, 'Angular and package versions match');
+		t.equal(angular.version.full, version, 'Angular and package versions match');
 		t.end();
 	});
 
 	t.end();
 });
-
-
 
 test('injector', function (t) {
 	var el;
@@ -38,3 +37,12 @@ test('injector', function (t) {
 
 	t.end();
 });
+
+test('custom paths', function (t) {
+	var ngUnminified = require('angular/full'),
+		ngCustom = require('angular/custom')(__dirname + '/fixtures/foo.js');
+
+	t.equal(ngUnminified.version.full, version, 'Angular unminified and package versions match');
+	t.equal(ngCustom.version.full, version, 'Custom Angular and package versions match');
+	t.end();
+})
