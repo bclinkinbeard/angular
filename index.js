@@ -7,7 +7,7 @@ var fs = require('fs'),
 	var src = require('fs').readFileSync(__dirname + '/lib/angular.min.js', 'utf8');
 
 	// replace implicit references
-	src = src.replace('angular.element(document)', 'window.angular.element(document)');
+	src = src.split('angular.element(document)').join('window.angular.element(document)');
 	src = src.split('(navigator.userAgent)').join('(window.navigator.userAgent)');
 	src = src.split('angular.$$csp').join('window.angular.$$csp');
 
