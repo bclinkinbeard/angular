@@ -39,10 +39,10 @@ test('injector', function (t) {
 });
 
 test('custom paths', function (t) {
-	var ngUnminified = require('../full'),
+	var ngMinified = require('../min'),
 		ngCustom = require('../custom')(__dirname + '/fixtures/foo.js');
 
-	t.equal(ngUnminified.version.full, version, 'Angular unminified and package versions match');
+	t.equal(ngMinified.version.full, version, 'Angular minified and package versions match');
 	t.equal(ngCustom.version.full, version, 'Custom Angular and package versions match');
 	t.end();
 })

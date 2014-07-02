@@ -5,7 +5,7 @@ var request = require('request'),
 	version = require('../package.json').version;
 
 var urlStub = 'http://code.angularjs.org/',
-	files = ['/angular.min.js', '/angular.min.js.map'];
+	files = ['/angular.js', '/angular.min.js', '/angular.min.js.map'];
 
 function getFile (index) {
 	var file = files[index],
@@ -16,12 +16,17 @@ function getFile (index) {
 		if (index < files.length - 1) {
 			getFile(index + 1);
 		} else {
+			copyToCustomLocation();
 			testAndTag();
 		}
 	});
 
 	request(urlStub + version + file).pipe(writer);
 };
+
+function copyToCustomLocation () {
+	fs.createReadStream('lib' + files[0]).pipe(fs.createWriteStream('test/fixtures/foo.js'));
+}
 
 function testAndTag () {
 	console.log('running tests');

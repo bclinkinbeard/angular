@@ -1,3 +1,3 @@
-require('./lib/angular.min.js');
+require('./lib/angular.js');
 
 module.exports = angular;
