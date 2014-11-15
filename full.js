@@ -1,1 +1,1 @@
-module.exports = require('./custom')(__dirname + '/lib/angular.js');
+module.exports = require('./custom')(require.resolve('angular'));
