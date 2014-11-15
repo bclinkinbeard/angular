@@ -1,11 +1,12 @@
 {
-  "name": "angular",
-  "version": "1.2.23",
+  "name": "angular-node",
+  "version": "1.3.2",
   "description": "AngularJS provided as a CommonJS module. Compiled with jsdom when running in Node. Useful for client-side apps built with Browserify and for testing AngularJS code in Node without depending on a browser.",
   "main": "index.js",
   "browser": "index-browserify.js",
   "scripts": {
-    "test": "tape test/index.js"
+    "test": "tape test/index.js",
+    "build": "bin/build.js"
   },
   "repository": {
     "type": "git",
@@ -24,10 +25,10 @@
   },
   "license": "MIT",
   "dependencies": {
+    "angular": "1.3.2",
     "jsdom": "~0.8.8"
   },
   "devDependencies": {
-    "tape": "~2.1.0",
-    "request": "~2.30.0"
+    "tape": "~2.1.0"
   }
 }
