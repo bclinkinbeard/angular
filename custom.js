@@ -1,6 +1,6 @@
 var fs = require('fs'),
 	document = require('jsdom').jsdom('<html><head></head><body></body></html>'),
-	window = document.parentWindow;
+	window = document.parentWindow ? document.parentWindow : document.defaultView;
 
 module.exports = function (path) {
 	// read angular source into memory
