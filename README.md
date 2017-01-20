@@ -15,7 +15,7 @@ Having a version of AngularJS that works outside the browser could also be conve
 
 As [egghead.io](http://egghead.io) has shown, testing [simple views](https://egghead.io/lessons/angularjs-unit-testing-hello-world) and [directives](https://egghead.io/lessons/angularjs-unit-testing-a-directive) is a great way to ensure the pieces of your app are working as intended. Unfortunately, testing this way usually requires running your code in a real browser via something like Karma, because AngularJS assumes `window` and `document` are both available. Additionally, AngularJS (via `angular-mocks.js`) only exposes the `inject` method shown in the [egghead.io](http://egghead.io) videos if `window.jasmine` is defined.
 
-This module allows you to test AngularJS views and directives using any testing framework and runner you like, from [Mocha](http://visionmedia.github.io/mocha/) to [Nodeunit](https://github.com/caolan/nodeunit) to [tape](https://github.com/substack/tape).
+This module allows you to test AngularJS views and directives using any testing framework and runner you like, from [Mocha](http://mochajs.org/) to [Nodeunit](https://github.com/caolan/nodeunit) to [tape](https://github.com/substack/tape).
 
 This module also aims to make it much easier to create AngularJS directives, modules, and other components that can be independently published to and versioned on npm and/or their own repositories.
 
